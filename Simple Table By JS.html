@@ -1,8 +1,16 @@
 <html>
 <head>
+    
+</head>
+<body>
+<button id="view-button">
+View Button
+</button>
+<div id="std-data">
+</div>
     <script>
         let viewButton = document.getElementById("view-button");
-        document.addEventListener('click', function (){
+        viewButton.addEventListener('click', function (){
             let dataDiv = document.getElementById("std-data");
             let dataTable = document.createElement("table");
             let tableHeader = document.createElement("thead");
@@ -36,12 +44,5 @@
             secondData.appendChild(secondBodytextNode);
         })
     </script>
-</head>
-<body>
-<button id="view-button">
-View Button
-</button>
-<div id="std-data">
-</div>
 </body>
 </html>
