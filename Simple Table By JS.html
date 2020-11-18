@@ -1,0 +1,47 @@
+<html>
+<head>
+    <script>
+        let viewButton = document.getElementById("view-button");
+        document.addEventListener('click', function (){
+            let dataDiv = document.getElementById("std-data");
+            let dataTable = document.createElement("table");
+            let tableHeader = document.createElement("thead");
+            let firstHead = document.createElement("th");
+            let secondHead = document.createElement("th");
+            let tableBody = document.createElement("tbody");
+            let tableRow = document.createElement("tr");
+            let firstData = document.createElement("td");
+            let secondData = document.createElement("td");
+            let firstHeadtextNode = document.createTextNode("Name");
+            let secondHeadtextNode = document.createTextNode("Roll Number");
+            let firstBodytextNode = document.createTextNode("Atif Talib");
+            let secondBodytextNode = document.createTextNode("BSEF18m031");
+
+            dataDiv.appendChild(dataTable);
+            dataTable.appendChild(tableHeader);
+
+            tableHeader.appendChild(firstHead);
+            tableHeader.appendChild(secondHead);
+
+            firstHead.appendChild(firstHeadtextNode);
+            secondHead.appendChild(secondHeadtextNode);
+
+            dataTable.appendChild(tableBody);
+            tableBody.appendChild(tableRow);
+
+            tableRow.appendChild(firstData);
+            tableRow.appendChild(secondData);
+
+            firstData.appendChild(firstBodytextNode);
+            secondData.appendChild(secondBodytextNode);
+        })
+    </script>
+</head>
+<body>
+<button id="view-button">
+View Button
+</button>
+<div id="std-data">
+</div>
+</body>
+</html>
