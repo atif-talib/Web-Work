@@ -1,0 +1,93 @@
+<html>
+<head>
+<script>
+</script>
+</head>
+<body>
+<div id="my-div">
+</div>
+<script>
+    /* JSON */
+    let myObj = {
+        "name":"Atif",
+        "rollNo":"BSEf18M031",
+        "Semesters":{a:"first",b:"second",c:"third",d:"fourth"},
+        "GPAs":[3.26,3.48,3.34,3.36],
+        "CGPA":function ()
+        {
+            let cg=0;
+            for(let i = 0 ; i< myObj.GPAs.length ; i++)
+            {
+                cg+=myObj.GPAs[i];
+            }
+            cg/=myObj.GPAs.length;
+            return cg;
+        }
+    }
+
+    //create button
+    let btn = document.createElement("button");
+
+    //attach button
+    document.getElementById("my-div").appendChild(btn);
+
+    //add text to button
+    btn.appendChild(document.createTextNode("Click Me!"));
+
+    //add event listener to the button
+    btn.addEventListener('click',function ()
+    {
+        let str = "";
+        for (let key in myObj)
+        {
+            let jsonObj=myObj[key];
+
+            //JSON k liye lazmi STRINGIFY use krni pry gi....
+            //ye wala phr function ko ni display krta, koi or approach lagani pry gi
+            //if(jsonObj instanceof Object)
+
+            //phr hm typeof wlai approach use krein gy
+            if(typeof (jsonObj) === "object")
+                jsonObj=JSON.stringify(jsonObj);
+            //str += "key: " + key + ",value: " + jsonObj + ",type: " + typeof(myObj[key]) + "<br/>";
+
+            //template notation introducedin ES6
+            str+= `key:${key},value:${jsonObj},type: ${typeof myObj[key]}, <br/>`
+        }
+        document.getElementById('my-div').innerHTML = str;
+    })
+
+    //data JSON
+    let students = [{name:"Atif",rollNo: 31},{name:"Saqib",rollNo: 32}];
+
+    //get div
+    let dataDiv = document.getElementById("my-div");
+
+    //make table by template notation
+    let table = "<table>";
+    table += '<thead><th>Name</th><th>RollNo</th></thead><tbody>';
+
+    // for(let i = 0; i< students.length; i++)
+    // {
+    //     table+= "<tr>";
+    //     for(let j in students[i])
+    //     {
+    //         table+=`<td>${students[i][j]}</td>`;
+    //     }
+    //     table+="</tr>";
+    // }
+
+    //for each function
+    students.forEach(function (item,index)
+    {
+        table+= "<tr>";
+        table+=`<td>${item.name}</td>`;
+        table+=`<td>${students[index].rollNo}</td>`;
+        table+="</tr>";
+    })
+    table+='</tbody></table>';
+    console.log(table);
+    dataDiv.innerHTML=table;
+</script>
+</body>
+</html>
