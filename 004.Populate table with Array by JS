@@ -1,0 +1,73 @@
+<html>
+<head>
+<script>
+</script>
+</head>
+<body>
+<div id="my-div">
+</div>
+<script>
+    //data array
+    let students = [["Atif","BSEF18M031"],["Saqib","MTS0023"],["Waseem","NinjaLover"]]
+
+    //get div
+    let dataDiv = document.getElementById("my-div");
+
+    //create table
+    let dataTable = document.createElement("table");
+
+    //create table head
+    let tableHeader = document.createElement("thead");
+
+    //create headings
+    let firstHead = document.createElement("th");
+    let secondHead = firstHead.cloneNode(true);
+
+    //create table body
+    let tableBody = document.createElement("tbody");
+
+    //create data for headings
+    let firstHeadtextNode = document.createTextNode("Name");
+    let secondHeadtextNode = document.createTextNode("Roll Number");
+
+    //attach data with headings
+    firstHead.appendChild(firstHeadtextNode);
+    secondHead.appendChild(secondHeadtextNode);
+
+    //attach headings with head
+    tableHeader.appendChild(firstHead);
+    tableHeader.appendChild(secondHead);
+
+    //attach head with table
+    dataTable.appendChild(tableHeader);
+
+    //attach table with div
+    dataDiv.appendChild(dataTable);
+
+    for(let i = 0; i< students.length; i++)
+    {
+        //new row created
+        let tableRow = document.createElement("tr");
+
+        for(let j=0;j<students[i].length;j++)
+        {
+            //data tags created
+            let dataNode = document.createElement("td");
+
+            //data created
+            let data = document.createTextNode(students[i][j]);
+
+            //data attached to the data tags
+            dataNode.appendChild(data);
+
+            //attach data to row
+            tableRow.appendChild(dataNode);
+        }
+
+        //attach row to the table
+        dataTable.appendChild(tableRow);
+    }
+
+</script>
+</body>
+</html>
